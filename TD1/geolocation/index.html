@@ -9,6 +9,18 @@
     <p id="text">Chargement de la position...</p>
 
     <script src="./script.js"></script>
+    <script>
+        // lit les variables de script.js et les affiche (rafraichi chaque seconde)
+        setInterval(() => {
+            document.getElementById("text").innerHTML =
+                "Longitude : " + lon + "<br>" +
+                "Latitude : " + lat + "<br>" +
+                "Altitude : " + altitude + "<br>" +
+                "Precision : " + precision + "<br>" +
+                "Vitesse : " + speed + "<br>" +
+                "Date : " + date.toLocaleString();
+        }, 1000);
+    </script>
 
 </body>
 </html>
