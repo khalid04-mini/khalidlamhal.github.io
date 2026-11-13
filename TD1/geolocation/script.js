@@ -5,7 +5,7 @@ let lon = 0;
 let lat = 0;
 let altitude = 0;
 
-let precision = 0;
+let accuracy = 0;
 let speed = 0;
 
 
@@ -59,8 +59,8 @@ navigator.geolocation.getCurrentPosition((position) => {
 // la precision de mesure
 navigator.geolocation.getCurrentPosition((position) => {
   console.log("############## prcision ######################");
-  precision = position.coords.precision
-  console.log(precision)
+  accuracy = position.coords.accuracy
+  console.log(accuracy)
 });
 // sa vitesse
 navigator.geolocation.getCurrentPosition((position) => {
@@ -105,7 +105,7 @@ setInterval(() => {
         "Longitude : " + lon + "<br>" +
         "Latitude : " + lat + "<br>" +
         "Altitude : " + altitude + "<br>" +
-        "Precision : " + precision + "<br>" +
+        "Precision : " + accuracy + "<br>" +
         "Vitesse : " + speed + "<br>" +
         "Date : " + date.toLocaleString();
 }, 1000);
