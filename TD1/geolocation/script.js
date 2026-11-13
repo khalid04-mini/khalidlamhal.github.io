@@ -98,3 +98,14 @@ function error(err) {
 navigator.geolocation.getCurrentPosition(success, error, options);
 
 
+
+
+setInterval(() => {
+    document.getElementById("text").innerHTML =
+        "Longitude : " + lon + "<br>" +
+        "Latitude : " + lat + "<br>" +
+        "Altitude : " + altitude + "<br>" +
+        "Precision : " + precision + "<br>" +
+        "Vitesse : " + speed + "<br>" +
+        "Date : " + date.toLocaleString();
+}, 1000);
