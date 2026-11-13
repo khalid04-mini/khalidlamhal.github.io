@@ -8,7 +8,30 @@
 <body>
     <p id="text">Chargement de la position...</p>
 
+    <h3>watchPosition</h3>
+    <p id="watch">En attente de la position...</p>
+
     <script src="./script.js"></script>
+    <script>
+        // watchPosition : met a jour l'affichage a chaque changement de position
+        navigator.geolocation.watchPosition(
+            (pos) => {
+                const c = pos.coords;
+                document.getElementById("watch").innerHTML =
+                    "Longitude : " + c.longitude + "<br>" +
+                    "Latitude : " + c.latitude + "<br>" +
+                    "Altitude : " + c.altitude + "<br>" +
+                    "Precision : " + c.accuracy + " m<br>" +
+                    "Vitesse : " + c.speed + "<br>" +
+                    "Date : " + new Date(pos.timestamp).toLocaleString();
+            },
+            (err) => {
+                document.getElementById("watch").textContent =
+                    "ERREUR(" + err.code + ") : " + err.message;
+            },
+            { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 }
+        );
+    </script>
     <script>
         // lit les variables de script.js et les affiche (rafraichi chaque seconde)
         setInterval(() => {
